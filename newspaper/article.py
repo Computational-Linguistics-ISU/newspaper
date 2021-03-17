@@ -172,12 +172,12 @@ class Article(object):
             return None
 
     def _parse_scheme_http(self):
-        try:
-            return network.get_html_2XX_only(self.url, self.config)
-        except requests.exceptions.RequestException as e:
-            self.download_state = ArticleDownloadState.FAILED_RESPONSE
-            self.download_exception_msg = str(e)
-            return None
+        #try:
+        return network.get_html_2XX_only(self.url, self.config)
+        #except requests.exceptions.RequestException as e:
+        #    self.download_state = ArticleDownloadState.FAILED_RESPONSE
+        #    self.download_exception_msg = str(e)
+        #    return None
 
     def download(self, input_html=None, title=None, recursion_counter=0):
         """Downloads the link's HTML content, don't use if you are batch async
